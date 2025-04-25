@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import BookCard from "./../BookCard/BookCard";
+import empty_Fav_img from "../../assets/images/empty_Fav.png";
 
 const Favourites = () => {
   const [favouritBook, setFavouritBook] = useState([]);
@@ -42,8 +43,21 @@ const Favourites = () => {
       </h1>
       <div className="overflow-y-auto h-[calc(100vh-110px)] px-1">
         {favouritBook.length === 0 ? (
-          <div className="flex justify-center items-center w-full h-[calc(100vh-110px)] bg-zinc-500 rounded">
-            <h1 className="text-center font-bold lg:text-2xl  animate-bounce rounded bg-blue-500 px-8  py-4 font-bold text-white hover:bg-blue-1000">No Favourite Books</h1>
+          <div className="flex justify-center items-center w-full h-[calc(100vh-110px)] bg-zinc-800 rounded">
+            <h1 className="text-center font-bold lg:text-2xl  animate-bounce rounded  px-10  py-4 font-bold text-white ">
+              <div className="flex flex-col justify-center items-center h-[calc(20vh-110px)]">
+                <div className="text-center text-xl font-semibold">
+                  No Favourite Books
+                </div>
+                <div>
+                  <img
+                    className="w-[30%] max-w-full mx-auto mt-0"
+                    src={empty_Fav_img}
+                    alt="No Favourite Books"
+                  />
+                </div>
+              </div>
+            </h1>
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
